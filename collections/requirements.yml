@@ -1,0 +1,6 @@
+---
+collections:
+  - name: cisco.ios
+    verison: 4.4.0
+
+
