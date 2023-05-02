@@ -1,10 +1,10 @@
-- name: Merge provided configuration with device configuration
+- name: configuration interfaces Gigaethernet 0/0 et gigaethernet 1/0 au niveau de router R2
   hosts: routers
   gather_facts: no
   connection: network_cli
   become: yes
   pre_tasks:
-    - name: configure interface for LAN for R1
+    - name: configure interface for spine for R2
       ios_config:
         lines:
         - interface g0/0
@@ -12,7 +12,7 @@
         - no shutdown
         save_when: modified
 
-    - name: configure interface WAN  for R1
+    - name: configure interface spine  for R2
       ios_config:
         lines:
         - interface g0/1
