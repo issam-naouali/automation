@@ -4,7 +4,7 @@
   connection: network_cli
   become: yes
   pre_tasks:
-    - name: configure interface for spine for R2
+    - name: configure interface for spine pour R2
       ios_config:
         lines:
         - interface g0/0
@@ -12,7 +12,7 @@
         - no shutdown
         save_when: modified
 
-    - name: configure interface spine  for R2
+    - name: configure interface spine pour  R2
       ios_config:
         lines:
         - interface g0/1
