@@ -1,6 +1,6 @@
 ---
   - name: Initial Playbook
-    hosts: routers
+    hosts: switchs
     gather_facts: no
     connection: network_cli
     tasks:

@@ -1,0 +1,21 @@
+- name: configuration protocole OSPF au niveau de router R1
+  hosts: R1
+  gather_facts: no
+  connection: network_cli
+  become: yes
+  tasks:
+    - name: configuration OSPF au niveau de R1
+      ios_config:
+        lines: 
+        - router ospf 1
+        - router-id 1.1.1.1
+        - network 10.0.0.0 0.0.0.255 area 0
+        - network 20.0.0.0 0.0.0.255 area 0
+        parents: router ospf 1
+        save_when: modified
+    - name: run sh ip ospf int brief
+      ios_command:
+        commands: show ip ospf interface brief
+      register: show_ip_ospf_interface_brief_result
+    - name: Debug registered var
+      debug: var=show_ip_ospf_interface_brief_result.stdout_lines 
