@@ -7,5 +7,5 @@
   tasks:
    - name: backup configuration
      ios_config:
-      backup:true
+      backup: true
     
