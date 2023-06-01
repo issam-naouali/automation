@@ -1,5 +1,5 @@
 - name: configuration interfaces Gigaethernet 0/0 et gigaethernet 1/0 au niveau de router R2
-  hosts: routers
+  hosts: R2
   gather_facts: no
   connection: network_cli
   become: yes
