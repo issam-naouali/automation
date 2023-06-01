@@ -1,0 +1,11 @@
+---
+- name: backup cisco devices config
+  hosts: routers
+  gather_facts: flase
+  connection: network_cli
+  become: yes
+  tasks:
+   - name: backup configuration
+     ios_config:
+      backup:true
+    
