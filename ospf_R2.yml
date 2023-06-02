@@ -1,4 +1,4 @@
-- name: configuration protocole OSPF au niveau de router R1
+- name: configuration protocole OSPF au niveau de router R2
   hosts: R2
   gather_facts: no
   connection: network_cli
@@ -7,11 +7,11 @@
     - name: configuration OSPF au niveau de R2
       ios_config:
         lines: 
-        - router ospf 2
-        - router-id 2.2.2.2
+        - router ospf 1
+        - router-id 1.1.1.1
         - network 30.0.0.0 0.0.0.255 area 0
         - network 40.0.0.0 0.0.0.255 area 0
-        parents: router ospf 2
+        parents: router ospf 1
         save_when: modified
     - name: run sh ip ospf int brief
       ios_command:
