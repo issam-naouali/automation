@@ -1,15 +1,14 @@
 ---
 - name: Backup Cisco Router Configuration
-  hosts: cisco_routers
+  hosts: routers
   gather_facts: true
   tasks:
-    - name: Run show running-config command
-      ios_command:
-        commands:
-          - show running-config
-      register: show_output
+    - name: backup configuration of all devices
+        cisco.ios.ios_config:
+          backup: yes
+      register: output_config
 
-    - name: Save running-config to file
-      copy:
-        content: "{{ show_output.stdout[0] }}"
-        dest: "/path/to/save/{{ inventory_hostname }}-backup.cfg"
+   - name: Rename backup files
+       copy:
+         src: "{{ output_config.backup_path}}"
+         dest: "./backup{{inventory_hostname}}.cfg"
