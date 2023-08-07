@@ -1,15 +1,30 @@
----
-- name: Initial Playbook
-    hosts: switchs
-    gather_facts: no
-    connection: network_cli
-  tasks:
-    - name: backup configuration of all devices
-        cisco.ios.ios_config:
-          backup: yes
-      register: output_config
+# Playbook to clear NTP config and apply new servers
 
-   - name: Rename backup files
-       copy:
-         src: "{{ output_config.backup_path}}"
-         dest: "./backup{{inventory_hostname}}.cfg"
+- hosts: routers
+
+  tasks:
+  - name: Show Run on Device
+    ios_command:
+      commands:
+        - show run
+    register: config
+
+  - name: get current configured ntp servers
+    set_fact: _servers="{{ config.stdout[0] | regex_findall('^ntp server (\S+)', multiline=True) }}"
+
+  - name: remove old ntp servers
+    ios_config:
+      lines:
+        - "no ntp server {{ item }}"
+    with_items: "{{ _servers }}"
+
+  - name: configure new NTP server 
+    ios_config: 
+      lines: 
+        - ntp server 4.5.6.7
+
+
+        
+
+
+    
