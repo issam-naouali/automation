@@ -1,7 +1,7 @@
 # Playbook to clear NTP config and apply new servers
 
-- hosts: routers
-
+ hosts: routers
+ become: yes
   tasks:
 
   - name: configure new NTP server 
