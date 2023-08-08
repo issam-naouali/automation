@@ -1,10 +1,10 @@
-- name: "Demonstrate connecting to switches"
+- name: "Demonstrate connecting to routers"
   hosts: routers
   gather_facts: no
   become: yes
 
   tasks:
-   - name: Change Password for User netop
+   - name: Changer mot de passe utilisateur
      cisco.ios.ios_user:
        name: ansibletest5
        configured_password: "issam1988"
