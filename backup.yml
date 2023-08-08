@@ -4,10 +4,11 @@
   become: yes
 
   tasks:
-   - name: Add a user specifying password type
+   - name: Add a user with MD5 hashed password
      cisco.ios.ios_user:
-        name: ansibletest4
-        configured_password: "{{ new_password }}"
-        password_type: password
+       name: ansibletest5
+       hashed_password:
+        type: 5
+        value: $3$8JcDilcYgFZi.yz4ApaqkHG2.8/
           
         
