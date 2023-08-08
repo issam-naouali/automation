@@ -1,0 +1,13 @@
+---
+- name: "Connection au devices"
+  hosts: routers
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Set user view/role
+      cisco.ios.ios_user:
+        name: netops
+        view: network-operator
+        state: present
+      
