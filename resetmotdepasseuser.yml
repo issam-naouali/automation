@@ -6,7 +6,7 @@
   tasks:
    - name: Creation utilisateur
      cisco.ios.ios_user:
-       name: ansibletest1
+       name: netops
        configured_password: "issam1988+"
        update_password: always
        state: present
