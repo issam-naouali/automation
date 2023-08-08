@@ -1,10 +1,10 @@
-- name: "Demonstrate connecting to routers"
+- name: "Connection au devices"
   hosts: routers
   gather_facts: no
   become: yes
 
   tasks:
-   - name: Changer mot de passe utilisateur
+   - name: Creation utilisateur
      cisco.ios.ios_user:
        name: ansibletest1
        configured_password: "issam1988+"
