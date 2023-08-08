@@ -7,6 +7,6 @@
   tasks:
     - name: accorder un role a l'utilisateur
       cisco.ios.ios_user:
-        name: netops
+        name: netops1
         privilege: 15
         state: present  

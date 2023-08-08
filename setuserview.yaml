@@ -7,7 +7,7 @@
   tasks:
     - name: Set user view/role
       cisco.ios.ios_user:
-        name: netops
+        name: netops1
         view: network-operator
         state: present
       
