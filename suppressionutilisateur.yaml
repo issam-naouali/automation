@@ -5,7 +5,7 @@
   become: yes
 
   tasks:
-    - name: Suppression utilisateurs
+    - name: Suppression utilisateur
       cisco.ios.ios_user:
         aggregate:
           - name: ansibletest1
