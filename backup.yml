@@ -10,5 +10,13 @@
        hashed_password:
         type: 5
         value: $3$8JcDilcYgFZi.yz4ApaqkHG2.8/
+
+  - name: Set multiple users to privilege level 15
+  cisco.ios.ios_user:
+    aggregate:
+      - name: netop
+      - name: netend
+    privilege: 15
+    state: present
           
         
