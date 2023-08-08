@@ -6,7 +6,7 @@
   tasks:
    - name: Changer mot de passe utilisateur
      cisco.ios.ios_user:
-       name: ansibletest4
+       name: ansibletest1
        configured_password: "issam1988+"
        update_password: always
        state: present
