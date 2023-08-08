@@ -1,0 +1,13 @@
+---
+  - name: Initial Playbook
+    hosts: routers
+    gather_facts: no
+    connection: network_cli
+    tasks:
+      - name: Delete users with aggregate
+        cisco.ios.ios_user:
+          aggregate:
+            - name: ansibletest1
+            - name: ansibletest5
+            - name: ansibletest4
+           state: absent
