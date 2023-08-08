@@ -7,6 +7,6 @@
   tasks:
     - name: accorder role a l'utilisateur
       cisco.ios.ios_user:
-        name: ansibletest1
+        name: netops
         privilege: 15
         state: present  
