@@ -5,7 +5,7 @@
   become: yes
 
   tasks:
-    - name: accorder role a l'utilisateur
+    - name: accorder un role a l'utilisateur
       cisco.ios.ios_user:
         name: netops
         privilege: 15

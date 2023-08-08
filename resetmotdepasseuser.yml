@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-   - name: Creation utilisateur
+   - name: Creation d'un utilisateur
      cisco.ios.ios_user:
        name: netops
        configured_password: "issam1988+"
