@@ -1,16 +1,14 @@
-- name: "Connection au devices"
+---
+- name: Add User to Cisco Nexus Switch
   hosts: switchs
   gather_facts: no
-  become: yes
-  
-
+  connection: network_cli
   tasks:
-   - name: Creation d'un utilisateur
-     cisco.nxos.nxos_user:
-       name: netops1
-       configured_password: "netops2023+kzkdnnic"
-       update_password: always
-       privilege: 15
-       state: present
-          
-        
+    - name: Configure User
+      ios_user:
+        provider: "{{ cli }}"
+        username: "{{ netops }}"
+        password: "{{ issam1988+ }}"
+        privilege: 15   # Adjust privilege level as needed
+        state: present
+
