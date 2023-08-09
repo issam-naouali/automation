@@ -10,5 +10,5 @@
           - name: netop
           - name: netend
           role: network-operator
-      state: present
+        state: present
 
