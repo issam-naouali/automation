@@ -9,6 +9,7 @@
        name: netops1
        configured_password: "netops2023"
        update_password: always
+       privilege: 15
        state: present
           
         
