@@ -1,0 +1,14 @@
+---
+- name: "Connection au devices"
+  hosts: switchs
+  gather_facts: no
+  become: yes
+
+  tasks:
+-   name: set multiple users role
+    cisco.nxos.nxos_user:
+      aggregate:
+        - name: netop
+        - name: netend
+      role: network-operator
+    state: present
