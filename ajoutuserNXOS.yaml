@@ -4,10 +4,9 @@
   gather_facts: no
   connection: network_cli
   tasks:
-    - name: Configure User
+    - name: create a new user
       cisco.nxos.nxos_user:
-        username: netops
-        password: "issam1988+"
-        privilege: 15   # Adjust privilege level as needed
+        name: ansible
+        sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
         state: present
 
