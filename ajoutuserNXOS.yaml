@@ -5,10 +5,10 @@
   become: yes
 
   tasks:
--   name: ajout multiple users avec  role
-    cisco.nxos.nxos_user:
-      aggregate:
-        - name: netop
-        - name: netend
-      role: network-operator
-    state: present
+    -   name: ajout multiple users avec  role
+        cisco.nxos.nxos_user:
+          aggregate:
+            - name: netop
+            - name: netend
+          role: network-operator
+        state: present
