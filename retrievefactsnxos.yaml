@@ -1,0 +1,12 @@
+---
+- name: retrieve facts from switchs
+  hosts: switchs
+  connection: local
+  tasks:
+    - name: "retrieving"
+      nxos_facts:
+        host: "{{inventory_hostname}}"
+        transport: nxapi
+      register: nxos_info
+    - name: "print nxos facts" 
+      debug: msg="{{nxos_info}}"   
