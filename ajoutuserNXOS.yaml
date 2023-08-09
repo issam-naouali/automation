@@ -5,8 +5,7 @@
   connection: network_cli
   tasks:
     - name: Configure User
-      ios_user:
-  
+      cisco.nxos.nxos_user:
         username: netops
         password: "issam1988+"
         privilege: 15   # Adjust privilege level as needed
