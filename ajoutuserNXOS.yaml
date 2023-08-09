@@ -6,8 +6,9 @@
   tasks:
     - name: Configure User
       ios_user:
-        username: "{{ netops }}"
-        password: "{{ issam1988+ }}"
+  
+        username: netops
+        password: "issam1988+"
         privilege: 15   # Adjust privilege level as needed
         state: present
 
