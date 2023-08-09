@@ -1,5 +1,5 @@
 - name: "Connection au devices"
-  hosts: all
+  hosts: routers
   gather_facts: no
   become: yes
 
