@@ -2,5 +2,8 @@
 collections:
   - name: cisco.ios
     verison: 4.4.0
+  - name: cisco.nxos
+    version: 5.1.0
+
 
 
