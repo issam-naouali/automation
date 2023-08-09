@@ -5,7 +5,7 @@
   become: yes
 
   tasks:
--   name: set multiple users role
+-   name: ajout multiple users avec  role
     cisco.nxos.nxos_user:
       aggregate:
         - name: netop
