@@ -1,0 +1,9 @@
+- name: Save Configuration of Cisco Devices
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Run the 'show startup-config' command
+      ios_command:
+        commands:
+           - show startup-config
+      register: startup_config
