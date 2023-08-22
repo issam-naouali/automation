@@ -3,6 +3,7 @@
   hosts: routers
   connection: network_cli
   gather_facts: false
+  become: yes
 
   vars:
     ntp_server: "216.239.35.0"
