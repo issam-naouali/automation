@@ -6,10 +6,10 @@
     - name: Copy startup configuration to device
       ios_config:
         lines:
-          - "{{ lookup('file', '/path/to/your/startup_config.txt') }}"
+          - "{{ lookup('file', '/var/lib/awx/projects/startup_config.txt') }}"
       register: config_result
 
     - name: Save the result to a log file
       copy:
         content: "{{ config_result.stdout_lines | join('\n') }}"
-        dest: "/tmp/config_result_{{ inventory_hostname }}.txt"
+        dest: "/var/lib/awx/projects/config_result_{{ inventory_hostname }}.txt"
