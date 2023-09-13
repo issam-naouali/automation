@@ -10,5 +10,5 @@
         aggregate:
           - name: ansibletest1
           - name: ansibletest5
-          - name: ansibletest4
+          - name: netops1
         state: absent

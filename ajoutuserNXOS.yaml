@@ -4,11 +4,12 @@
   gather_facts: no
   connection: network_cli
   tasks:
-    - name: set multiple users role
-      cisco.nxos.nxos_user:
-        aggregate:
-          - name: netop
-          - name: netend
-          role: network-operator
+    - name: configure the exec banner
+      cisco.nxos.nxos_banner:
+        banner: exec
+      text: |
+        this is my exec banner
+        that contains a multiline
+        string
         state: present
 
