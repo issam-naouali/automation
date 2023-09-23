@@ -1,0 +1,13 @@
+---
+- name: Show OSPF Interface Brief
+  hosts: routers
+  gather_facts: no  # Disable gathering facts, as we'll use ios_command
+  tasks:
+    - name: Run "show ip ospf interface brief" command
+      ios_command:
+        commands:
+          - show ip ospf interface brief
+      register: ospf_interface_brief
+    - name: Display OSPF Interface Brief
+      debug:
+        var: ospf_interface_brief.stdout_lines[0]
