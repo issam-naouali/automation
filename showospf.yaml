@@ -1,6 +1,7 @@
 ---
 - name: Show OSPF Interface Brief
   hosts: routers
+  become: yes
   gather_facts: no  # Disable gathering facts, as we'll use ios_command
   tasks:
     - name: Run "show ip ospf interface brief" command
