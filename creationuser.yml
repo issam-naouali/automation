@@ -6,7 +6,7 @@
   tasks:
    - name: Creation d'un utilisateur
      cisco.ios.ios_user:
-       name: netops1
+       name: netops2
        configured_password: "netops2023"
        update_password: always
        state: present
