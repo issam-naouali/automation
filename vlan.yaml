@@ -1,8 +1,8 @@
 - name: VLANs  
-    hosts: switchs 
-    connection: local  
-    gather_facts: no  
-    become: yes
+  hosts: switchs 
+  connection: local  
+  gather_facts: no  
+  become: yes
 
     tasks:  
       - name: ensure VLANs 2-20 and 99 exist on all switches  
