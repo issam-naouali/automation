@@ -1,21 +1,18 @@
-- name: Create vlan
-  hosts: switchs
-  become: yes
-  ios_vlan:
-    vlan_id: 100
-    name: test-vlan
-    state: present
+- name: VLANs  
+    hosts: switchs 
+    connection: local  
+    gather_facts: no  
+    become: yes
 
-- name: Add interfaces to VLAN
-  ios_vlan:
-    vlan_id: 100
-    interfaces:
-      - Ethernet1/11
-      - Ethernet1/12
+    tasks:  
+      - name: ensure VLANs 2-20 and 99 exist on all switches  
+        nxos_vlan: vlan_id="2-20,99" state=present host={{ inventory_hostname }}  
 
-- name: Check if interfaces is assigned to VLAN
-  ios_vlan:
-    vlan_id: 100
-    associated_interfaces:
-      - Ethernet1/11
-      - Ethernet1/12
+      - name: config VLANs names for a few VLANs  
+        nxos_vlan: vlan_id={{ item.vid }} name={{ item.name }} host={{ inventory_hostname }} state=present  
+        with_items:  
+          - { vid: 2, name: web }  
+          - { vid: 3, name: app }  
+          - { vid: 4, name: db }  
+          - { vid: 20, name: server }  
+          - { vid: 99, name: native }
