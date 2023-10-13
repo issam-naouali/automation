@@ -1,11 +1,12 @@
-- name: VLANs  
-  hosts: switchs 
-  connection: local  
-  gather_facts: no  
-    tasks:  
-      - name: Delete vlans.
-        cisco.nxos.nxos_vlans:
-          config:
-            - vlan_id: 13
-            - vlan_id: 12
+---
+- name: VLANs
+  hosts: switchs
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Delete vlans.
+      cisco.nxos.nxos_vlans:
+        config:
+          - vlan_id: 13
+          - vlan_id: 12
         state: deleted
