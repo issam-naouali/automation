@@ -8,7 +8,7 @@
     - name: Suppression utilisateurs .
       cisco.ios.ios_user:
         aggregate:
-          - name: ansibletest1
-          - name: ansibletest5
           - name: netops1
+          - name: netops
+          - name: netops2
         state: absent
