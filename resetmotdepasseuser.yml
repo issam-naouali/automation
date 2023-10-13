@@ -7,7 +7,7 @@
    - name: Creation d'un utilisateur
      cisco.ios.ios_user:
        name: netops1
-       configured_password: "netops2023"
+       configured_password: "iteam2023+"
        update_password: always
        state: present
           
