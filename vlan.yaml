@@ -2,8 +2,6 @@
   hosts: switchs 
   connection: local  
   gather_facts: no  
-  become: yes
-
     tasks:  
       - name: Delete vlans.
         cisco.nxos.nxos_vlans:
