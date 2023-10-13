@@ -1,18 +1,19 @@
 ---
-- name: VLANs
+- name: VLANs and Interfaces
   hosts: switchs
   gather_facts: no
   tasks:
-    - name: Delete vlans.
-      cisco.nxos.nxos_vlans:
-        config:
-          - vlan_id: 13
-          - vlan_id: 12
-        state: deleted
-
     - name: Add vlans.
       cisco.nxos.nxos_vlans:
         config:
           - vlan_id: 100   # ID du nouveau VLAN à ajouter
             name: VLAN100  # Nom du nouveau VLAN (facultatif)
+        state: merged
+
+    - name: Add interfaces to VLAN.
+      cisco.nxos.nxos_interfaces:
+        config:
+          - name: Ethernet1/11   # Nom de l'interface
+            switchport_mode: access
+            switchport_access_vlan: 100  # VLAN auquel attacher l'interface
         state: merged
